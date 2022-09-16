@@ -5,25 +5,22 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
-import { useDisplay } from 'vuetify'
+import { ref, watch } from 'vue';
+import { useDisplay } from 'vuetify';
+const { lgAndUp } = useDisplay();
+const divClass = ref('');
 
-const counter = ref(1)
-const { lgAndUp } = useDisplay()
-
-const divClass = computed(() => {
-  const result = lgAndUp.value ? 'green' : 'red'
-  console.log('result', result)
-
-  return result
-})
+watch(lgAndUp, (val) => {
+  console.log(val);
+  divClass.value = val ? 'green' : 'red';
+});
 </script>
 
 <style>
-  .green {
-    background-color: green;
-  }
-  .red {
-    background-color: red;
-  }
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
 </style>
