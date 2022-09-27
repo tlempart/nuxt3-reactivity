@@ -5,15 +5,16 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
-import { useDisplay } from 'vuetify';
-const { lgAndUp } = useDisplay();
-const divClass = ref('');
+import { ref, watch } from 'vue'
+import { useDisplay } from 'vuetify'
+
+const { lgAndUp } = useDisplay()
+const divClass = ref('')
 
 watch(lgAndUp, (val) => {
-  console.log(val);
-  divClass.value = val ? 'green' : 'red';
-});
+  console.log(val)
+  divClass.value = val ? 'green' : 'red'
+},{immediate:true})
 </script>
 
 <style>
