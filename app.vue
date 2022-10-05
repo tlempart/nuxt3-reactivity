@@ -12,7 +12,7 @@ const { lgAndUp } = useDisplay()
 const divClass = ref('')
 
 watch(lgAndUp, (val) => {
-  console.log(val)
+  console.log(`current value ${val} - ${new Date()}`)
   divClass.value = val ? 'green' : 'red'
 },{immediate:true})
 </script>
